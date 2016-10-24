@@ -8,14 +8,17 @@ import {AUTH_PROVIDERS} from 'angular2-jwt';
 import {routing, appRoutingProviders} from './app.router';
 /*PAGES COMPONENT*/
 import {HomeModule ,ProfileModule} from './component/index';
-
 //services
+import {AuthGuard} from './auth.guard';
 import {Auth} from './services/auth.services'; 
 
 @NgModule({
   imports: [ BrowserModule , routing],
   declarations: [ AppComponent , HomeModule, ProfileModule],
   bootstrap: [ AppComponent ],
-  providers : [appRoutingProviders, AUTH_PROVIDERS, Auth ]
+  providers : [
+  				appRoutingProviders, 
+  			   	AUTH_PROVIDERS, Auth , AuthGuard
+  			   ]
 })
 export class AppModule { }

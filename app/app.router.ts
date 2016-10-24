@@ -2,12 +2,17 @@ import  {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {HomeModule,ProfileModule} from './component/index';
-
+import {AuthGuard} from './auth.guard';
 
 //se crea una constante para exportar. de tipo Routes..un array de objetos
 const appRoutes : Routes =[
-		{path: '', component : HomeModule},
-		{path: 'profile', component: ProfileModule}
+		{	path: '', 
+			component : HomeModule
+		},
+		{ 	path: 'profile', 
+		  	component: ProfileModule,
+		  	canActivate:[AuthGuard]
+		}
 ];
 //exporta una constante un array vacio
 export const appRoutingProviders : any[] = [];
