@@ -1,5 +1,5 @@
 import { Component }      from '@angular/core';
-
+import {Auth} from '../../services/auth.services';
 
 @Component({
 	moduleId : module.id,
@@ -7,5 +7,6 @@ import { Component }      from '@angular/core';
 	templateUrl: 'home.component.html'
 })
 export class HomeModule {
+	constructor (private auth: Auth){}
 
  }
